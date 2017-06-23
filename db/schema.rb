@@ -38,32 +38,32 @@ ActiveRecord::Schema.define(version: 20170620023213) do
 
   create_table "steps", force: :cascade do |t|
     t.string   "content"
-    t.integer  "completed_rate"
-    t.integer  "vote"
+    t.integer  "completed_rate", default: 0
+    t.integer  "vote",           default: 0
     t.integer  "story_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "stories", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "description"
-    t.float    "completed_rate"
-    t.integer  "numbers_of_steps"
-    t.integer  "vote"
-    t.boolean  "is_public"
+    t.float    "completed_rate",   default: 0.0
+    t.integer  "numbers_of_steps", default: 0
+    t.integer  "vote",             default: 0
+    t.boolean  "is_public",        default: false
     t.datetime "due_date"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.boolean  "is_admin"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "is_admin",   default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "votes", force: :cascade do |t|
